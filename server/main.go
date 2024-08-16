@@ -62,7 +62,6 @@ func LoanCheck(c Client) {
 			fmt.Println(Products[i].LoanName)
 			fmt.Println("На сумму до ", Products[i].Sum, "рублей")
 			fmt.Println("со ставкой ", Products[i].Rate, "% годовых")
-
 		}
 	}
 	if IsAnyProduct == false {
