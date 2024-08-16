@@ -13,7 +13,7 @@ func main() {
 	fmt.Scanln(&dataClient.Name)
 	fmt.Println("введите ваш возраст")
 	fmt.Scanln(&dataClient.Age)
-	fmt.Println("введите вашу з/п в тыс.руб.")
+	fmt.Println("введите вашу з/п в руб.")
 	fmt.Scanln(&dataClient.Wage)
 	//fmt.Println(dataClient)
 	fmt.Println("Уважаемый ", dataClient.Name)
