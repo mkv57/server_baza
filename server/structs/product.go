@@ -1,4 +1,4 @@
-package structs
+/*package structs
 
 var Products = []Loan{
 	// предложение 1
