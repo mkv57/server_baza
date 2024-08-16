@@ -63,12 +63,13 @@ func LoanCheck(c Client) {
 			fmt.Println("На сумму до ", Products[i].Sum, "рублей")
 			fmt.Println("со ставкой ", Products[i].Rate, "% годовых")
 
-		} else if IsAnyProduct == false {
-
-			fmt.Println("Уважаемый ", c.Name)
-			fmt.Println("К сожалению у нас сегодня нет для вас предложения по займу ")
 		}
 	}
+	if IsAnyProduct == false {
+
+		fmt.Println("К сожалению у нас сегодня нет для вас предложения по займу ")
+	}
+
 }
 
 func main() {
@@ -81,7 +82,7 @@ func main() {
 	fmt.Scanln(&dataClient.Age)
 	fmt.Println("введите вашу з/п в руб.")
 	fmt.Scanln(&dataClient.Wage)
-	//fmt.Println(dataClient)
+
 	fmt.Println("Уважаемый ", dataClient.Name)
 	LoanCheck(dataClient)
 }
