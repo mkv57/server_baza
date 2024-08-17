@@ -81,12 +81,13 @@ func main() {
 		Request) {
 		w.Write([]byte("Hello, World!"))
 	}).Methods(http.MethodGet)
+	fmt.Println("Сервер запущен")
 
 	http.ListenAndServe(":8080", r)
 
-	var dataClient = Client{}
+	//var dataClient = Client{}
 
-	fmt.Println("введите ваше имя")
+	/*fmt.Println("введите ваше имя")
 	fmt.Scanln(&dataClient.Name)
 	fmt.Println("введите ваш возраст")
 	fmt.Scanln(&dataClient.Age)
@@ -95,4 +96,5 @@ func main() {
 
 	fmt.Println("Уважаемый ", dataClient.Name)
 	LoanCheck(dataClient)
+	*/
 }
