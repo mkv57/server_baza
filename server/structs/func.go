@@ -1,4 +1,4 @@
-/*package structs
+package structs
 
 import "fmt"
 
@@ -13,7 +13,7 @@ func LoanCheck(c Client) {
 			fmt.Println("Вам доступен ")
 			fmt.Println(Products[i].LoanName)
 			fmt.Println("На сумму до ", Products[i].Sum, "рублей")
-			fmt.Println("со ставкой ", Products[i].Rate, "% годовых")
+			fmt.Println("со ставкой ", Products[i].Rate, " % годовых")
 
 		} else if IsAnyProduct == false {
 

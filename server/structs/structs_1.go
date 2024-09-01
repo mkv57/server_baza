@@ -1,4 +1,4 @@
-/*package structs
+package structs
 
 type Client struct {
 	Name string
