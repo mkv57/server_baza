@@ -5,6 +5,7 @@ import "fmt"
 func LoanCheck(c Client) string {
 
 	var IsAnyProduct bool = false
+	k := ""
 
 	for i := 0; i < 3; i++ {
 
@@ -14,15 +15,17 @@ func LoanCheck(c Client) string {
 			fmt.Println(Products[i].LoanName)
 			fmt.Println("На сумму до ", Products[i].Sum, "рублей")
 			fmt.Println("со ставкой ", Products[i].Rate, " % годовых")
-			n := "ttt"
-			return n
-
-		} else if IsAnyProduct == false {
-
-			fmt.Println("Уважаемый ", c.Name)
-			fmt.Println("К сожалению у нас сегодня нет для вас предложения по займу ")
-			return ("К сожалению у нас сегодня нет для вас предложения по займу ")
+			n1 := "rrr"
+			k = k + n1
 		}
 	}
-	return ("К сожалению у нас сегодня нет для вас предложения по займу ")
+	if IsAnyProduct == false {
+
+		fmt.Println("Уважаемый ", c.Name)
+		fmt.Println("К сожалению у нас сегодня нет для вас предложения по займу ")
+		//return ("К сожалению у нас сегодня нет для вас предложения по займу ")
+		k = "Уважаемый " + c.Name + " к сожалению у нас сегодня нет для вас предложения по займу "
+
+	}
+	return k //("К сожалению у нас сегодня нет для вас предложения по займу ")
 }
