@@ -3,7 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
+	"server/structs"
 
 	"github.com/gorilla/mux"
 	//"server/structs"
@@ -12,7 +14,28 @@ import (
 func GetProduct(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	data, err := json.Marshal("hello world")
+	data, err := json.Marshal(structs.Products)
+	if err != nil {
+		//handleError(w, http.StatusInternalServerError, err)
+		return
+	}
+	w.Write(data)
+}
+func AnsverRequest(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	jsong, err := io.ReadAll(r.Body)
+	if err != nil {
+		//handleError(w, http.StatusInternalServerError, err)
+		return
+	}
+	var date1 structs.Client
+	err = json.Unmarshal(jsong, &date1)
+	if err != nil {
+		//handleError(w, http.StatusBadRequest, err)
+		return
+	}
+	data, err := json.Marshal(structs.LoanCheck(date1))
 	if err != nil {
 		//handleError(w, http.StatusInternalServerError, err)
 		return
@@ -26,6 +49,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/User", GetProduct).Methods(http.MethodGet)
+	r.HandleFunc("/User", AnsverRequest).Methods(http.MethodPost)
 	fmt.Println("сервер запущен")
 	err := http.ListenAndServe("127.0.0.1:8080", r)
 	//logger.Warn("сервер отключён")

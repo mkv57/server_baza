@@ -2,7 +2,7 @@ package structs
 
 import "fmt"
 
-func LoanCheck(c Client) {
+func LoanCheck(c Client) string {
 
 	var IsAnyProduct bool = false
 
@@ -14,11 +14,15 @@ func LoanCheck(c Client) {
 			fmt.Println(Products[i].LoanName)
 			fmt.Println("На сумму до ", Products[i].Sum, "рублей")
 			fmt.Println("со ставкой ", Products[i].Rate, " % годовых")
+			n := "ttt"
+			return n
 
 		} else if IsAnyProduct == false {
 
 			fmt.Println("Уважаемый ", c.Name)
 			fmt.Println("К сожалению у нас сегодня нет для вас предложения по займу ")
+			return ("К сожалению у нас сегодня нет для вас предложения по займу ")
 		}
 	}
+	return ("К сожалению у нас сегодня нет для вас предложения по займу ")
 }
