@@ -9,7 +9,6 @@ import (
 	"server/internal/domain"
 
 	"github.com/gorilla/mux"
-	//"server/structs"
 )
 
 func GetProduct(w http.ResponseWriter, r *http.Request) {
@@ -60,16 +59,3 @@ func main() {
 		return
 	}
 }
-
-//var dataClient = Client{}
-
-/*fmt.Println("введите ваше имя")
-fmt.Scanln(&dataClient.Name)
-fmt.Println("введите ваш возраст")
-fmt.Scanln(&dataClient.Age)
-fmt.Println("введите вашу з/п в руб.")
-fmt.Scanln(&dataClient.Wage)
-
-fmt.Println("Уважаемый ", dataClient.Name)
-LoanCheck(dataClient)
-*/
