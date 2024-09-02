@@ -1,55 +1,21 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
-	"server/internal/db"
-	"server/internal/domain"
+	"server/internal/api"
 
 	"github.com/gorilla/mux"
 )
 
-func GetProduct(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
-	data, err := json.Marshal(domain.Products)
-	if err != nil {
-		//handleError(w, http.StatusInternalServerError, err)
-		return
-	}
-	w.Write(data)
-}
-func AnsverRequest(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
-	jsong, err := io.ReadAll(r.Body)
-	if err != nil {
-		//handleError(w, http.StatusInternalServerError, err)
-		return
-	}
-	var date1 db.Client
-	err = json.Unmarshal(jsong, &date1)
-	if err != nil {
-		//handleError(w, http.StatusBadRequest, err)
-		return
-	}
-	data, err := json.Marshal(db.LoanCheck(date1))
-	if err != nil {
-		//handleError(w, http.StatusInternalServerError, err)
-		return
-	}
-	w.Write(data)
-
-}
-
 func main() {
+
+	var v = api.Server{}
 
 	r := mux.NewRouter()
 
-	r.HandleFunc("/User", GetProduct).Methods(http.MethodGet)
-	r.HandleFunc("/User", AnsverRequest).Methods(http.MethodPost)
+	r.HandleFunc("/User", v.GetProduct).Methods(http.MethodGet)
+	r.HandleFunc("/User", v.AnsverRequest).Methods(http.MethodPost)
 	fmt.Println("сервер запущен")
 	err := http.ListenAndServe("127.0.0.1:8080", r)
 	//logger.Warn("сервер отключён")
