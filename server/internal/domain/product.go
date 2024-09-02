@@ -1,10 +1,15 @@
 package domain
 
-import (
-	"server/internal/db"
-)
+type Loan struct {
+	LoanName string
+	Sum      int
+	Rate     int
+	AgeMin   int
+	AgeMax   int
+	Salary   int
+}
 
-var Products = []db.Loan{
+var Products = []Loan{
 	// предложение 1
 	{
 		LoanName: "займ краткосрочный",

@@ -5,6 +5,12 @@ import (
 	"strconv"
 )
 
+type Client struct {
+	Name string
+	Age  int
+	Wage int
+}
+
 func LoanCheck(c Client) string {
 
 	var IsAnyProduct bool = false
