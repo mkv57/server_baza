@@ -1,4 +1,4 @@
-package structs
+package db
 
 type Client struct {
 	Name string

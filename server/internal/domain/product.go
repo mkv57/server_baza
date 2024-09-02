@@ -1,6 +1,10 @@
-package structs
+package domain
 
-var Products = []Loan{
+import (
+	"server/internal/db"
+)
+
+var Products = []db.Loan{
 	// предложение 1
 	{
 		LoanName: "займ краткосрочный",
