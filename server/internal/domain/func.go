@@ -4,13 +4,17 @@ import (
 	"strconv"
 )
 
+type Clients interface {
+	LoanCheck() string
+}
+
 type Client struct {
 	Name string
 	Age  int
 	Wage int
 }
 
-func (c Client) LoanCheck() string {
+func LoanCheck(c Client) string {
 
 	var IsAnyProduct bool = false
 	k := ""

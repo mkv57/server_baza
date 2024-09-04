@@ -10,13 +10,12 @@ import (
 
 type Server struct {
 	DateBase domain.Client
-	DateProd domain.Loan
 }
 
 func (p Server) GetProduct(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	data, err := json.Marshal(p.DateProd) //(domain.Products)????
+	data, err := json.Marshal(domain.Products) //(domain.Products)????
 	if err != nil {
 		//handleError(w, http.StatusInternalServerError, err)
 		return
@@ -31,13 +30,15 @@ func (p Server) AnsverRequest(w http.ResponseWriter, r *http.Request) {
 		//handleError(w, http.StatusInternalServerError, err)
 		return
 	}
-	//var date1 db.Client ???
-	err = json.Unmarshal(jsong, &p.DateBase) //data1) ???
+	var DateBase2 domain.Client
+	//var n = domain.Client(DateBase2)
+	err = json.Unmarshal(jsong, &DateBase2) //data1) ???
+	//fmt.Println(DateBase2)
 	if err != nil {
 		//handleError(w, http.StatusBadRequest, err)
 		return
 	}
-	data, err := json.Marshal(p.DateBase.LoanCheck)
+	data, err := json.Marshal(domain.LoanCheck(DateBase2))
 	if err != nil {
 		//handleError(w, http.StatusInternalServerError, err)
 		return
