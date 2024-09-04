@@ -1,7 +1,6 @@
-package db
+package domain
 
 import (
-	"server/internal/domain"
 	"strconv"
 )
 
@@ -18,14 +17,14 @@ func (c Client) LoanCheck() string {
 
 	for i := 0; i < 3; i++ {
 
-		if c.Wage >= (domain.Products[i]).Salary && c.Age >= (domain.Products[i]).AgeMin && c.Age <= (domain.Products[i].AgeMax) {
+		if c.Wage >= (Products[i]).Salary && c.Age >= (Products[i]).AgeMin && c.Age <= (Products[i].AgeMax) {
 			IsAnyProduct = true
 			//fmt.Println("  Вам доступен  ")
 			//fmt.Println(Products[i].LoanName)
 			//fmt.Println("На сумму до ", Products[i].Sum, "рублей")
 			//fmt.Println("со ставкой ", Products[i].Rate, " % годовых")
-			n1 := "Уважаемый " + c.Name + " Вам доступен " + domain.Products[i].LoanName
-			n1 = n1 + " На сумму до " + strconv.Itoa(domain.Products[i].Sum) + " рублей " + " с ставкой " + strconv.Itoa(domain.Products[i].Rate) + " процентов годовых "
+			n1 := "Уважаемый " + c.Name + " Вам доступен " + Products[i].LoanName
+			n1 = n1 + " На сумму до " + strconv.Itoa(Products[i].Sum) + " рублей " + " с ставкой " + strconv.Itoa(Products[i].Rate) + " процентов годовых "
 			k = k + n1
 
 		}

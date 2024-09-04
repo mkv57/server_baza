@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"server/internal/db"
+
 	"server/internal/domain"
 )
 
 type Server struct {
-	DateBase db.Client
+	DateBase domain.Client
 	DateProd domain.Loan
 }
 
